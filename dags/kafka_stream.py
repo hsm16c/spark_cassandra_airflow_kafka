@@ -4,8 +4,8 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 
 default_args = {
-    'owner': 'airscholar',
-    'start_date': datetime(2023, 9, 3, 10, 00)
+    'owner': 'hossam',
+    'start_date': datetime(2025, 3, 13, 13, 27)
 }
 
 def get_data():
@@ -59,7 +59,7 @@ def stream_data():
 
 with DAG('user_automation',
          default_args=default_args,
-         schedule_interval='@daily',
+         schedule='@daily',
          catchup=False) as dag:
 
     streaming_task = PythonOperator(
